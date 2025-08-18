@@ -859,8 +859,8 @@ h1, h2, h3, .cs-title, .cs-topper {
         overflow: hidden;
         background-color: #565656;
         padding-bottom: 60px;
-        padding-left: 20px;
-        padding-right: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
     #gallery-45 .cs-container {
         width: 100%;
