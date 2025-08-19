@@ -45,7 +45,7 @@ h1, h2, h3, .cs-title, .cs-topper {
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 50px;
   }
   
   .social-icons a svg {
@@ -58,7 +58,6 @@ h1, h2, h3, .cs-title, .cs-topper {
   }
   
   .social-icons-nav {
-
     display: flex;
     justify-content: center;
     gap: 30px;

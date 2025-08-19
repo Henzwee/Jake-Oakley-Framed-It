@@ -10,7 +10,7 @@
     setInterval(() => {
       i = (i + 1) % slides.length;
       showSlide(i);
-    }, 4000); // Change every 4 seconds
+    }, 3000); // Change every 3 seconds
   }
 
   document.addEventListener('DOMContentLoaded', () => {
