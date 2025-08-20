@@ -85,3 +85,35 @@ lightbox.addEventListener('click', (e) => {
     lightbox.style.display = 'none';
   }
 });
+
+/*  CONTACT FORM  */
+
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+  const message = document.getElementById("formMessage");
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.reset();
+      message.textContent = "Form sent!";
+      message.style.color = "green";
+    } else {
+      message.textContent = "Form didn't send. Please try again.";
+      message.style.color = "red";
+    }
+  } catch (error) {
+    message.textContent = "An error occurred. Please check your connection.";
+    message.style.color = "red";
+  }
+
+  message.style.display = "block";
+});
