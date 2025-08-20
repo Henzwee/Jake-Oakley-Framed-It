@@ -92,27 +92,30 @@
           <input type="text" id="lastName" name="lastName" required>
         </div>
       </div>
-
+    
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
       </div>
-
+    
       <div class="form-group">
         <label for="phone">Phone Number (optional)</label>
         <input type="tel" id="phone" name="phone">
       </div>
-
+    
       <div class="form-group">
         <label for="reason">Message</label>
-        <textarea id="reason" name="reason" rows="4" required></textarea>
+        <textarea id="reason" name="message" rows="4" required></textarea>
       </div>
-
-      <a href="#" class="cs-button-solid" id="formSubmit">Send Message</a>
-
+    
+      <button type="submit" class="cs-button-solid" id="formSubmit">
+        Send Message
+      </button>
     </form>
+    
+    <p id="formMessage" style="display:none;" aria-live="polite"></p>
+    
 
-    <p id="formMessage" style="display:none;"></p>
   </div>
 </section>
 
@@ -179,6 +182,6 @@
   </footer>  
       
 
-<script src="scripts.js"></script>                                                          
+  <script src="scripts.js" defer></script>                                                    
 </body>
 </html>

@@ -968,7 +968,7 @@ right: 20px;
     #gallery-45 .cs-title {
         color: #fff;
         padding-top: 20px;
-        font-size: clamp(2rem, 5vw, 2.5rem);
+        font-size: 2.5rem;
         font-family: 'Playfair Display', serif;
     }
     #gallery-45 .cs-content {
@@ -1353,6 +1353,7 @@ right: 20px;
   border-radius: 4px;
   font-size: 1rem;
   background-color: #dedede; /* very light grey */
+  font-family: 'Lato', sans-serif;
 }
 
 .contact-text {
@@ -1368,7 +1369,7 @@ right: 20px;
 }
 
 .contact-title {
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: 2.5rem;
   font-weight: 900;
   line-height: 1.2em;
   text-align: center;
@@ -1389,4 +1390,23 @@ right: 20px;
 #formSubmit {
   align-self: center;   /* centers the button horizontally */
   margin-top: .25rem;
+}
+
+#formMessage {
+  display: none;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+#formMessage.success { color: #ffffff; } /* green */
+#formMessage.error   { color: #c62828; } /* red   */
+
+.cs-button-solid {
+  appearance: none;        /* removes native button styling */
+  -webkit-appearance: none;
+  border: none;            /* removes the default border */
+  background: none;        /* removes default background */
+  box-shadow: none;        /* removes default box shadow */
+  cursor: pointer;         /* keeps pointer cursor */
 }
