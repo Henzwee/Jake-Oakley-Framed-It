@@ -42,8 +42,10 @@
       const link = e.target.closest('.cs-li-link, .cs-button-solid');
       if (link) close();
     });
-  });       
+  });
+
 /* GALLERY LIGHTBOX */
+
 const images = document.querySelectorAll('.cs-item img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.querySelector('.lightbox-img');
@@ -86,14 +88,15 @@ lightbox.addEventListener('click', (e) => {
   }
 });
 
-/*  CONTACT FORM  */
+/* CONTACT FORM */
 
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
+const form = document.getElementById("contactForm");
+const message = document.getElementById("formMessage");
 
-  const form = e.target;
+document.getElementById("formSubmit").addEventListener("click", async function(e) {
+  e.preventDefault(); // prevent link navigation
+
   const formData = new FormData(form);
-  const message = document.getElementById("formMessage");
 
   try {
     const response = await fetch(form.action, {
@@ -104,10 +107,10 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
     if (response.ok) {
       form.reset();
-      message.textContent = "Form sent!";
-      message.style.color = "green";
+      message.textContent = "Message sent!";
+      message.style.color = "white";
     } else {
-      message.textContent = "Form didn't send. Please try again.";
+      message.textContent = "Message didn't send. Please try again.";
       message.style.color = "red";
     }
   } catch (error) {
