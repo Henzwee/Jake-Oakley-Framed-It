@@ -90,28 +90,19 @@ function initLightbox() {
 /* ---------- CONTACT FORM (safe-init) ---------- */
 function initContactForm() {
   const form    = document.getElementById('contactForm');
-  const submit  = document.getElementById('formSubmit'); // can be <a> or <button>
+  const submit  = document.getElementById('formSubmit'); // <button type="submit">
   const message = document.getElementById('formMessage');
   if (!form || !submit || !message) return;
 
   const showMsg = (text, kind = '') => {
     message.textContent = text;
-    message.className = '';
-    if (kind) message.classList.add(kind);
+    message.className = '';         // clear previous classes
+    if (kind) message.classList.add(kind); // expect .success / .error in CSS
     message.style.display = 'block';
   };
 
-  // If submit is an <a>, emulate submit. If it's a <button type="submit">, this is harmless.
-  submit.addEventListener('click', (e) => {
-    // If it's an anchor with href, prevent the jump
-    if (submit.tagName === 'A') e.preventDefault();
-    if (!form.checkValidity()) {
-      showMsg('Please fill out all required fields.', 'error');
-      return;
-    }
-    // Works for both cases; will trigger the 'submit' event
-    form.requestSubmit?.() || form.submit();
-  });
+  // ❌ REMOVE the click handler entirely to avoid double submits
+  // submit.addEventListener('click', ...)
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -121,14 +112,16 @@ function initContactForm() {
       return;
     }
 
-    // Optional: UX guard against double-clicks
+    // UX: prevent double-clicks + feedback
     if ('disabled' in submit) submit.disabled = true;
+    const prevLabel = submit.textContent;
+    submit.textContent = 'Sending…';
 
     try {
       const res = await fetch(form.action, {
         method: form.method || 'POST',
         body: new FormData(form),
-        headers: { Accept: 'application/json' }
+        headers: { Accept: 'application/json' } // prevents redirect/HTML
       });
 
       if (!res.ok) {
@@ -142,12 +135,17 @@ function initContactForm() {
       }
 
       form.reset();
-      showMsg('Message sent!', 'success');
+      showMsg('Thanks! Your message was sent.', 'success');
       setTimeout(() => (message.style.display = 'none'), 5000);
     } catch {
       showMsg('Network error. Please check your connection.', 'error');
     } finally {
       if ('disabled' in submit) submit.disabled = false;
+      submit.textContent = prevLabel;
     }
   });
 }
+
+// Make sure this actually runs:
+document.addEventListener('DOMContentLoaded', initContactForm);
+// or, if your script tag has `defer`, you can just call: initContactForm();
