@@ -1446,3 +1446,29 @@ right: 20px;
   box-shadow: none;        /* removes default box shadow */
   cursor: pointer;         /* keeps pointer cursor */
 }
+
+/* Ensure fields size inside padding */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Stack the First/Last name on small screens */
+@media (max-width: 640px) {
+  .form-row {
+    flex-direction: column;   /* was a single row */
+    gap: .75rem;
+  }
+  .form-container {
+    padding: 1.25rem;         /* a little tighter padding on phones */
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+/* Optional: prevent iOS zoom-on-focus */
+.form-group input,
+.form-group textarea {
+  font-size: 16px;            /* iOS won’t auto-zoom */
+}
