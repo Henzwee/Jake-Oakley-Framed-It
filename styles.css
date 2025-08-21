@@ -631,26 +631,24 @@ right: 20px;
       position: relative;
       z-index: 1;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: #8b8b8b;
     }
 
-    #hero-856 .cs-button-solid:before {
+    #hero-856 .cs-button-solid::before {
       content: "";
       position: absolute;
+      inset: 0 0 0 0;      /* full size */
+      width: 100%;         /* <-- always filled on mobile */
       height: 100%;
-      width: 0%;
       background: #000;
-      opacity: 1;
-      top: 0;
-      left: 0;
-      z-index: -1;
       border-radius: 0.25rem;
-      transition: width 0.3s;
+      z-index: -1;
+      transition: width 0.3s; /* harmless on mobile */
     }
 
     #hero-856 .cs-button-solid:hover:before {
       width: 100%;
     }
-
     /* Updated for carousel */
     #hero-856 .cs-picture-carousel {
       width: 100%;
@@ -722,6 +720,13 @@ right: 20px;
       left: 0;
       /* flips it horizontally */
       transform: scaleX(-1);
+    }
+    #hero-856 .cs-button-solid::before {
+      width: 0%;           /* <-- hidden until hover on desktop */
+    }
+    #hero-856 .cs-button-solid:hover::before,
+    #hero-856 .cs-button-solid:focus-visible::before {
+      width: 100%;
     }
   }
  /*-- -------------------------- -->
@@ -842,36 +847,36 @@ right: 20px;
         color: var(--bodyTextColor);
     }
     #why-choose-682 .cs-button-solid {
-        font-size: 1rem;
-        /* 46px - 56px */
-        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
-        text-decoration: none;
-        font-weight: 700;
-        text-align: center;
-        margin: 0;
-        color: #fff;
-        min-width: 9.375rem;
-        padding: 0 1.5rem;
-        background-color: var(--primary);
-        border-radius: 0.25rem;
-        display: inline-block;
-        position: relative;
-        z-index: 1;
-        /* prevents padding from adding to the width */
-        box-sizing: border-box;
+      font-size: 1rem;
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      background-color: var(--primary);
+      border-radius: 0.25rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+  
+      /* polish */
+      overflow: hidden;                   /* clip ::before to rounded corners */
+      -webkit-tap-highlight-color: transparent;
     }
-    #why-choose-682 .cs-button-solid:before {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 0%;
-        background: #000;
-        opacity: 1;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        border-radius: 0.25rem;
-        transition: width 0.3s;
+    #why-choose-682 .cs-button-solid::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 100%;                        /* <-- always filled on mobile */
+      height: 100%;
+      background: #000;
+      border-radius: 0.25rem;
+      z-index: -1;
+      transition: width 0.3s;
     }
     #why-choose-682 .cs-button-solid:hover:before {
         width: 100%;
@@ -952,6 +957,13 @@ right: 20px;
         right: -2em;
         z-index: -1;
         fill: #565656; 
+    }
+    #why-choose-682 .cs-button-solid::before {
+      width: 0%;                          /* hidden until hover on desktop */
+    }
+    #why-choose-682 .cs-button-solid:hover::before,
+    #why-choose-682 .cs-button-solid:focus-visible::before {
+      width: 100%;
     }
 }
 
@@ -1047,39 +1059,39 @@ right: 20px;
         object-fit: cover;
     }
     #gallery-45 .cs-button-solid {
-        font-size: 1rem;
-        /* 46px - 56px */
-        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
-        text-decoration: none;
-        font-weight: 700;
-        text-align: center;
-        margin: 0;
-        color: #fff;
-        min-width: 9.375rem;
-        padding: 0 1.5rem;
-        background-color: var(--primary);
-        border-radius: 0.25rem;
-        display: inline-block;
-        position: relative;
-        z-index: 1;
-        /* prevents padding from adding to the width */
-        box-sizing: border-box;
+      font-size: 1rem;
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      background-color: var(--primary);
+      border-radius: 0.25rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+  
+      /* polish */
+      overflow: hidden;                   
+      -webkit-tap-highlight-color: transparent;
     }
-    #gallery-45 .cs-button-solid:before {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 0%;
-        background: #000;
-        opacity: 1;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        border-radius: 0.25rem;
-        transition: width 0.3s;
+    #gallery-45 .cs-button-solid::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 100%;         /* <-- always filled on mobile */
+      height: 100%;
+      background: #000;
+      border-radius: 0.25rem;
+      z-index: -1;
+      transition: width 0.3s;
     }
-    #gallery-45 .cs-button-solid:hover:before {
-        width: 100%;
+    #gallery-45 .cs-button-solid:hover::before {
+      width: 100%;
     }
 }
 /* In Between - 600px */
@@ -1103,7 +1115,16 @@ right: 20px;
         grid-column: span 3;
     }
 }
-
+/* ---------- Desktop override (hover reveal) ---------- */
+@media only screen and (min-width: 64rem) {
+  #gallery-45 .cs-button-solid::before {
+    width: 0%;           /* hidden until hover */
+  }
+  #gallery-45 .cs-button-solid:hover::before,
+  #gallery-45 .cs-button-solid:focus-visible::before {
+    width: 100%;
+  }
+}
 /*-- -------------------------- -->
 <---          Footer            -->
 <--- -------------------------- -*/
