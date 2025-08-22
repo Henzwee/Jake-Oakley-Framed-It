@@ -780,7 +780,7 @@ right: 20px;
         font-weight: 900;
     }
     #why-choose-682 .cs-title {
-      font-size: clamp(2.1rem, 4vw, 2.7rem);
+      font-size: clamp(2.1rem, 4vw, 2.4rem);
         font-weight: 900;
         line-height: 1.5em;
         text-transform: uppercase;
@@ -996,7 +996,7 @@ right: 20px;
         padding-top: 20px;
         font-size: 2.5rem;
         font-family: 'Playfair Display', serif;
-        font-size: clamp(2.1rem, 4vw, 2.7rem);
+        font-size: clamp(2.1rem, 4vw, 2.4rem);
     }
     #gallery-45 .cs-content {
         /* set text align to left if content needs to be left aligned */
