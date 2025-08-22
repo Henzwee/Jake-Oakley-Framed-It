@@ -584,7 +584,7 @@ right: 20px;
     }
 
     #hero-856 .cs-title {
-      font-size: clamp(3rem, 5vw, 2.5rem);
+      font-size: clamp(2.7rem, 5vw, 3rem);
       font-weight: 900;
       line-height: 1.2em;
       text-align: center;
