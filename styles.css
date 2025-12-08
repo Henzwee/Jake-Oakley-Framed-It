@@ -912,10 +912,17 @@ right: 20px;
         top: 5em;
         left: 0;
     }
-    #why-choose-682 .cs-picture2 {
-        top: 0;
-        right: 0;
-    }
+    /* to make ballstate poster title show */
+#why-choose-682 .cs-picture2 {
+    position: relative;
+    overflow: hidden;
+}
+
+#why-choose-682 .cs-picture2 img {
+    object-fit: cover;
+    object-position: center top;
+    transform: translateY(25px); /* adjust this number */
+}
     #why-choose-682 .cs-picture3 {
         bottom: 0;
         left: 0;
